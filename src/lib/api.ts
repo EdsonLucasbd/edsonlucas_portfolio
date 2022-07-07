@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
+import tiny from 'tiny-json-http';
 
-const API_URL = 'https://graphql.datocms.com/'
 const API_TOKEN = process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN
 
 export const responsiveImageFragment = gql`
@@ -17,13 +17,23 @@ export const responsiveImageFragment = gql`
     base64
   }
 `
+interface RequestParams {
+  query: string;
+  variables?: {
+    limit: number
+  };
+  preview?: boolean;
+}
 
-export async function fetchAPI(query, { variables, preview } = {}) {
-  const res = await fetch(API_URL + (preview ? '/preview' : ''), {
-    method: 'POST',
+export const fetchAPI = async ({ query, variables, preview }: RequestParams) => {
+
+  const endpoint = preview
+    ? `https://graphql-listen.datocms.com/preview`
+    : `https://graphql.datocms.com/`;
+  const { body } = await tiny.post({
+    url: endpoint,
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${API_TOKEN}`,
+      authorization: `Bearer ${API_TOKEN}`,
     },
     data: JSON.stringify({
       query,
@@ -31,12 +41,12 @@ export async function fetchAPI(query, { variables, preview } = {}) {
     }),
   })
 
-  const json = await res.json()
+  const json = await body.json()
   if (json.errors) {
     console.error(json.errors)
     throw new Error('Failed to fetch API')
   }
-  return json.data
+  return json.body.data;
 }
 
 export async function getHeaderData(preview) {
