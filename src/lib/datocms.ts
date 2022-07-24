@@ -78,22 +78,19 @@ const fullQuery = gql`
 `
 const headerQuery = gql`
   query MyQuery {
-    headerMenu {
-      header {
-        ... on LogoRecord {
-          logoImg {
-            responsiveImage(imgixParams: {auto: format, fit: crop, h: "250", w: "250"}) {
-              ${responsiveImageFragment}
-            }
-          }
+    logo {
+      logomarca {
+        responsiveImage(imgixParams: {auto: format, fit: crop, h: "50", w: "50"}) {
+          ${responsiveImageFragment}
         }
-        ... on HeaderItemRecord {
-          menuItems {
-            id
-            sectionTitle
-            link
-          }
-        }
+      }
+    }
+
+    sectionsHeader {
+      aSection {
+        title
+        link
+        id
       }
     }
   }
@@ -119,8 +116,8 @@ async function fetchAPI(query: string, { variables, preview }: RequestParams = {
 
   const json = await res.json()
   if (json.errors) {
-    console.error(json.errors)
-    throw new Error('Failed to fetch API')
+    console.error("UM ERRO!", json.errors)
+    //throw new Error('Failed to fetch API')
   }
   return json.data
 }
@@ -128,5 +125,10 @@ async function fetchAPI(query: string, { variables, preview }: RequestParams = {
 export async function loadData(): Promise<QueryResponseType> {
   const data = await fetchAPI(fullQuery);
 
-  return data
+  return data && data
+}
+export async function loadHeaderData(): Promise<HeaderTypes> {
+  const data = await fetchAPI(headerQuery);
+
+  return data && data
 }

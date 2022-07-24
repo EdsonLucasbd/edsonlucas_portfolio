@@ -1,16 +1,16 @@
 import { ResponsiveImageType } from "react-datocms";
 
 export type HeaderTypes = {
-  headerMenu: {
-    header: {
-      logoImg: {
-        responsiveImage: ResponsiveImageType,
-      };
-      menuItems: [{
-        id: string,
-        sectionTitle: string,
-        link: string,
-      }]
+  logo: {
+    logomarca: {
+      responsiveImage: ResponsiveImageType,
+    };
+  }
+  sectionsHeader: {
+    aSection: {
+      title: string,
+      link: string,
+      id: string,
     }
   }
 }
