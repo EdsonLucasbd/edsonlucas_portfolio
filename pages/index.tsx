@@ -1,25 +1,34 @@
 import Head from 'next/head'
-import { Header } from '../src/components/Header'
-import { Home } from '../src/components/Home'
-import { loadData } from '../src/lib/datocms';
-import { QueryResponseType } from '../src/lib/types';
+import { Header } from '@components/Header'
+import { Home } from '@components/Home'
+import { loadData, loadHeaderData } from '@lib/datocms';
+import { QueryResponseType } from '@lib/types';
+import { ResponsiveImageType } from 'react-datocms';
 
 type Props = {
   data: QueryResponseType
+  logoImg: ResponsiveImageType
+  sections: [{
+    id: string,
+    title: string,
+    link: string,
+  }]
 }
 
 export async function getStaticProps() {
-  const data = await loadData();
+  const data = await loadHeaderData();
 
   return {
     props: {
+      logoImg: data?.logo.logomarca.responsiveImage,
+      sections: data?.sectionsHeader.aSection,
       data
     },
   }
 }
 
 
-const App = ({ data }: Props) => {
+const App = ({ logoImg, sections, data }: Props) => {
 
   return (
     <>
@@ -31,10 +40,7 @@ const App = ({ data }: Props) => {
       {data && (
 
         <div className="w-screen h-screen bg-gradientRadial from-comment via-current-line to-background">
-          <Header 
-            logoImg={data.headerMenu.headerMenu?.header.logoImg} 
-            menuItems={data.headerMenu.headerMenu?.header.menuItems}
-          />
+          <Header logoImg={logoImg} sections={sections}/>
         </div>
       )}
     </>
