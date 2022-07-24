@@ -187,6 +187,11 @@
   resolved "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@types/tiny-json-http@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@types/tiny-json-http/-/tiny-json-http-7.3.1.tgz#40339b990b7251689646b985823aa53487dcd77d"
+  integrity sha512-mJwIwN1W9VLVM7FrGPuWabuEH5FqcOGZByqV4qOSNiwMKtEKym5+6Dyhx2v7vbR/4rSjjUgngmYimaDHQbZQsw==
+
 "@typescript-eslint/parser@^5.21.0":
   version "5.28.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-5.28.0.tgz"
@@ -2015,6 +2020,11 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
+
+tiny-json-http@^7.4.2:
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/tiny-json-http/-/tiny-json-http-7.4.2.tgz#2948d7a7f650d69df65f10982f126b5c5520ce3d"
+  integrity sha512-+3ns4PfQTLaF69zGASkAfDoOEVmwYTXSDrU6VR93h317uFOW7evFzKa7Ih9JzPHiYSee3lUXHLAGhws2wFSexQ==
 
 to-regex-range@^5.0.1:
   version "5.0.1"

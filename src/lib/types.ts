@@ -1,6 +1,6 @@
 import { ResponsiveImageType } from "react-datocms";
 
-export type HeaderItems = {
+export type HeaderTypes = {
   headerMenu: {
     header: {
       logoImg: {
@@ -49,10 +49,10 @@ export type Project = {
 }
 
 export type QueryResponseType = {
-  headerMenu: HeaderItems;
+  headerMenu: HeaderTypes;
   home: HomeTypes;
-  network: Network[];
-  project: Project[];
+  network: Network;
+  project: Project;
 };
 
 export type QueryVariables = {
