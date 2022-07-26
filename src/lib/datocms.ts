@@ -30,30 +30,43 @@ const responsiveImageFragment = `
 
 const fullQuery = gql`
   query MyQuery {
-    headerMenu {
-      header {
-        ... on LogoRecord {
-          logoImg {
-            responsiveImage(imgixParams: {auto: format, fit: crop, h: "250", w: "250"}) {
-              ${responsiveImageFragment}
-            }
-          }
+    logo {
+      logomarca {
+        responsiveImage(imgixParams: {auto: format, fit: crop, h: "50", w: "50"}) {
+          ${responsiveImageFragment}
         }
-        ... on HeaderItemRecord {
-          menuItems {
-            id
-            sectionTitle
-            link
-          }
-        }
+      }
+    }
+
+    sectionsHeader {
+      aSection {
+        title
+        link
+        id
       }
     }
     home {
       bgPhoto {
-        url(imgixParams: {auto: format, fit: crop, h: "1834", w: "4659", maxH: "3616", maxW: "6000"})
+        responsiveImage(imgixParams: {fm: webp, auto: compress, fit: max}, sizes: "(max-width: 300px) 100vw, 600px"){
+          src
+          width
+          height
+        }
       }
-      name
       job
+      name
+    }
+    project {
+      projectItem {
+        projectIcon {
+          responsiveImage(imgixParams: {auto: format, fit: crop, h: "100", w: "100"}) {
+            ${responsiveImageFragment}
+          }
+        }
+        projectName
+        projectLink
+        id
+      }
     }
     network {
       socialNetwork {
@@ -62,17 +75,13 @@ const fullQuery = gql`
         link
       }
     }
-    project {
-      projectItem {
-        id
-        projectIcon {
-          responsiveImage(imgixParams: {auto: format, fit: crop, h: "500", w: "500"}) {
-            ${responsiveImageFragment}
-          }
+    tab {
+      icon {
+        responsiveImage(imgixParams: {auto: format, fit: crop, h: "50", w: "50"}) {
+          ${responsiveImageFragment}
         }
-        projectName
-        projectLink
       }
+      tabTitle
     }
   }
 `
@@ -116,8 +125,7 @@ async function fetchAPI(query: string, { variables, preview }: RequestParams = {
 
   const json = await res.json()
   if (json.errors) {
-    console.error("UM ERRO!", json.errors)
-    //throw new Error('Failed to fetch API')
+    throw new Error('Failed to fetch API')
   }
   return json.data
 }
