@@ -1,27 +1,24 @@
 import { gql } from "graphql-request";
 import { GetStaticProps } from "next";
+import { ResponsiveImageType } from "react-datocms";
 import { HomeTypes } from "../../lib/types";
 
-interface Props {
-  homeData: HomeTypes;
+interface IHomeProp {
+  bgPhoto: ResponsiveImageType
+  job: string;
+  name: string;
 }
 
-export const Home = ({ homeData }: Props) => {
-  console.log("dados HOME...", homeData && homeData)
-  const job = homeData.home?.job
-  const name = homeData.home?.name
-  console.log("dados HOME...", homeData && job, name)
+export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
   
   return( 
     <>
-      {homeData && (
-        <div className="container mx-auto w-screen h-full bg-fixed" style={{backgroundImage: `url(${homeData.home?.bgPhoto.url})`}}>
-          <div className="flex flex-col pt-[18.63rem] pl-[9rem]">
-            <h1 className="font-title text-[3.5rem]">Olá, me chamo Lucas</h1>
-            <h2 className="font-body text-2xl">Desenvolvedor de Software FrontEnd</h2>
-          </div>
+      <div className="mx-auto w-screen h-screen" style={{backgroundImage: `url(${bgPhoto?.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+        <div className="flex flex-col pt-[18.63rem] pl-[9rem]">
+          <h1 className="font-title text-[3.5rem]">{name}</h1>
+          <h2 className="font-body text-2xl">{job}</h2>
         </div>
-      )}
+      </div>
     </>
   );
 }
