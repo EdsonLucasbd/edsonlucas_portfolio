@@ -4,6 +4,7 @@ import { Home } from '@components/Home'
 import { loadData, loadHeaderData } from '@lib/datocms';
 import { QueryResponseType } from '@lib/types';
 import { ResponsiveImageType } from 'react-datocms';
+import SocialLinks from '@components/SocialLinks';
 
 type Props = {
   data: QueryResponseType
@@ -78,6 +79,7 @@ const App = ({
 
         <div className="w-screen h-screen bg-gradientRadial from-comment via-current-line to-background">
           <Header logoImg={logoImg} sections={sections}/>
+          <SocialLinks socialNetwork={networks}/>
           <Home bgPhoto={heroBg} job={job} name={name}/>
         </div>
       )}
