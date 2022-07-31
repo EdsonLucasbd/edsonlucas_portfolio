@@ -9,9 +9,7 @@ interface ISocialLinks {
   }]
 }
 
-const SocialLinks = ({socialNetwork}: ISocialLinks) => {
-  console.log(socialNetwork)
-
+export const SocialLinks = ({socialNetwork}: ISocialLinks) => {
   const icon = (iconName: string) => {
     switch (iconName){
       case 'linkedin':
@@ -39,6 +37,8 @@ const SocialLinks = ({socialNetwork}: ISocialLinks) => {
         transition-all ease-in-out duration-300
       ' 
       href={network.link}
+      target="_blank"
+      rel="noreferrer"
     >
       {icon(network.networkName)}
     </a>
@@ -51,5 +51,3 @@ const SocialLinks = ({socialNetwork}: ISocialLinks) => {
     </>
   );
 }
-
-export default SocialLinks;

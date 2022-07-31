@@ -4,7 +4,8 @@ import { Home } from '@components/Home'
 import { loadData, loadHeaderData } from '@lib/datocms';
 import { QueryResponseType } from '@lib/types';
 import { ResponsiveImageType } from 'react-datocms';
-import SocialLinks from '@components/SocialLinks';
+import { SocialLinks } from '@components/SocialLinks';
+import { ProjectCarousel } from '@components/ProjectCarousel';
 
 type Props = {
   data: QueryResponseType
@@ -76,11 +77,11 @@ const App = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {data && (
-
         <div className="w-screen h-screen bg-gradientRadial from-comment via-current-line to-background">
           <Header logoImg={logoImg} sections={sections}/>
           <SocialLinks socialNetwork={networks}/>
           <Home bgPhoto={heroBg} job={job} name={name}/>
+          <ProjectCarousel projects={projects}/>
         </div>
       )}
     </>

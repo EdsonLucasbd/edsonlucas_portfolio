@@ -13,7 +13,7 @@ export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
   
   return( 
     <>
-      <div className="mx-auto w-screen h-screen" style={{backgroundImage: `url(${bgPhoto?.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+      <div className="mx-auto w-screen h-screen bg-no-repeat bg-cover bg-col" style={{backgroundImage: `url(${bgPhoto?.src})`}}>
         <div className="flex flex-col pt-[18.63rem] pl-[9rem]">
           <h1 className="font-title text-[3.5rem]">{name}</h1>
           <h2 className="font-body text-2xl">{job}</h2>

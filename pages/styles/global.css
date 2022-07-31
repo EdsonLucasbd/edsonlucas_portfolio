@@ -5,3 +5,14 @@
 body {
   @apply bg-background  text-foreground;
 }
+
+.glide__slide {
+  width: 17.44rem !important;
+  height: 12.82rem !important;
+}
+
+.glide__slide--active {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.1)
+}
