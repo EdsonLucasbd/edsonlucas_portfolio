@@ -2,17 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
 body {
   @apply bg-background  text-foreground;
 }
 
-.glide__slide {
-  width: 17.44rem !important;
+.swiper {
+  width: 45rem;
+  padding: 2.69rem 0;
+  height: 18.75rem;
+}
+
+.swiper-slide {
+  opacity: 0;
+  transition: bottom .4s ease-in-out;
+  bottom: 0;
+}
+
+.swiper-slide-prev, .swiper-slide-next, .swiper-slide-active {
+  background-color: rgb(68 71 90 / 1);
+  border-radius: 0.5rem;
+  filter: blur(0.25rem) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  opacity: 0.3;
+  width: 16rem !important;
   height: 12.82rem !important;
 }
 
-.glide__slide--active {
+.swiper-slide img {
+  width: 60% !important;
+  position: relative;
+  left: 20% !important;
+  margin: 0
+}
+
+.swiper-slide-active {
   opacity: 1;
-  filter: none;
-  transform: scale(1.1)
+  z-index: 10;
+  bottom: 20%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #6272A4;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: #6272A4;
+}
+.swiper-button-prev::after, .swiper-button-next::after {
+  font-size: 3.5rem;
 }
