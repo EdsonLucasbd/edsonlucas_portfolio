@@ -59,7 +59,7 @@ const fullQuery = gql`
     project {
       projectItem {
         projectIcon {
-          responsiveImage(imgixParams: {auto: format, fit: crop, h: "100", w: "100"}) {
+          responsiveImage(imgixParams: {auto: compress, fit: max, maxW: "1600", maxH: "804"}) {
             ${responsiveImageFragment}
           }
         }
