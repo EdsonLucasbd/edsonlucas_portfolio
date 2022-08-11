@@ -17,7 +17,7 @@ export type HeaderTypes = {
 
 export type HomeTypes = {
   home: {
-    bgPhoto:  {
+    bgPhoto: {
       responsiveImage: ResponsiveImageType,
     };
     job: string;
@@ -51,7 +51,7 @@ export type Project = {
 export type Tab = {
   tab: {
     icon: {
-      responsiveImage: ResponsiveImageType,
+      url: string,
     }
     tabTitle: string
   }
@@ -71,7 +71,7 @@ export type QueryResponseType = {
     }]
   }
   home: {
-    bgPhoto:  {
+    bgPhoto: {
       responsiveImage: ResponsiveImageType,
     };
     job: string;

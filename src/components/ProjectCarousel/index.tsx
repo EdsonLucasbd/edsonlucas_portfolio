@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigation, Pagination, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import Glide from '@glidejs/glide'
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
 
 import { Image, ResponsiveImageType } from 'react-datocms';
 
@@ -19,11 +16,19 @@ export interface IProjects {
 }
 
 export const ProjectCarousel = ({ projects }: IProjects) => {
+  const [subtitle, setSubtitle] = useState('')
+  const swiperSlide = useSwiperSlide()
+
+  // const changeSubtitle = (slide) => {
+  //   swiperSlide.isActive && (
+  //     setSubtitle()
+  //   )
+  // }
 
   const projectsList = projects.map((project) =>
     <SwiperSlide key={project.id}>
-      <Image data={project.projectIcon.responsiveImage}/>
-    </SwiperSlide>
+      <Image data={project.projectIcon.responsiveImage} />
+    </SwiperSlide>,
   )
 
   return (
@@ -38,9 +43,13 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
         draggable={true}
         pagination={{ clickable: true }}
         loop={true}
+        onSlideChange={() => {
+
+        }}
       >
         {projectsList}
       </Swiper>
+      <p>{subtitle}</p>
     </div>
   );
 }

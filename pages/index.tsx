@@ -33,7 +33,7 @@ type Props = {
   }];
   tab: {
     icon: {
-      responsiveImage: ResponsiveImageType,
+      ul: string,
     }
     tabTitle: string
   }
@@ -58,10 +58,10 @@ export async function getStaticProps() {
 }
 
 
-const App = ({ 
+const App = ({
   data,
-  logoImg, 
-  sections, 
+  logoImg,
+  sections,
   heroBg,
   job,
   name,
@@ -74,14 +74,14 @@ const App = ({
       <Head>
         <title>{tab?.tabTitle}</title>
         <meta name="description" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={tab?.icon.ul} />
       </Head>
       {data && (
         <div className="max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
-          <Header logoImg={logoImg} sections={sections}/>
-          <SocialLinks socialNetwork={networks}/>
-          <Home bgPhoto={heroBg} job={job} name={name}/>
-          <ProjectCarousel projects={projects}/>
+          <Header logoImg={logoImg} sections={sections} />
+          <SocialLinks socialNetwork={networks} />
+          <Home bgPhoto={heroBg} job={job} name={name} />
+          <ProjectCarousel projects={projects} />
         </div>
       )}
     </>

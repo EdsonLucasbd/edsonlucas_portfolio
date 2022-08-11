@@ -1,6 +1,6 @@
 import { gql, GraphQLClient } from "graphql-request";
 
-import {post} from 'tiny-json-http';
+import { post } from 'tiny-json-http';
 import { HeaderTypes, QueryResponseType } from "./types";
 
 const API_URL = 'https://graphql.datocms.com/'
@@ -77,9 +77,7 @@ const fullQuery = gql`
     }
     tab {
       icon {
-        responsiveImage(imgixParams: {auto: format, fit: crop, h: "50", w: "50"}) {
-          ${responsiveImageFragment}
-        }
+        url
       }
       tabTitle
     }
