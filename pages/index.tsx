@@ -29,11 +29,12 @@ type Props = {
     }
     id: string,
     projectName: string,
+    projectDescription: string,
     projectLink: string,
   }];
   tab: {
     icon: {
-      ul: string,
+      url: string,
     }
     tabTitle: string
   }
@@ -57,7 +58,6 @@ export async function getStaticProps() {
   }
 }
 
-
 const App = ({
   data,
   logoImg,
@@ -68,21 +68,22 @@ const App = ({
   networks,
   projects,
   tab }: Props) => {
-
   return (
     <>
-      <Head>
-        <title>{tab?.tabTitle}</title>
-        <meta name="description" />
-        <link rel="icon" href={tab?.icon.ul} />
-      </Head>
       {data && (
-        <div className="max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
-          <Header logoImg={logoImg} sections={sections} />
-          <SocialLinks socialNetwork={networks} />
-          <Home bgPhoto={heroBg} job={job} name={name} />
-          <ProjectCarousel projects={projects} />
-        </div>
+        <>
+          <Head>
+            <title>{tab?.tabTitle}</title>
+            <meta name="description" />
+            <link rel="icon" href={tab?.icon.url} />
+          </Head>
+          <div className="max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
+            <Header logoImg={logoImg} sections={sections} />
+            <SocialLinks socialNetwork={networks} />
+            <Home bgPhoto={heroBg} job={job} name={name} />
+            <ProjectCarousel projects={projects} />
+          </div>
+        </>
       )}
     </>
   )

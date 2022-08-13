@@ -9,9 +9,9 @@ interface ISocialLinks {
   }]
 }
 
-export const SocialLinks = ({socialNetwork}: ISocialLinks) => {
+export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
   const icon = (iconName: string) => {
-    switch (iconName){
+    switch (iconName) {
       case 'linkedin':
         return <FiLinkedin />;
         break;
@@ -28,14 +28,14 @@ export const SocialLinks = ({socialNetwork}: ISocialLinks) => {
 
   }
 
-  const socialItem = socialNetwork.map((network) => 
-    <a 
-    key={network.id} 
+  const socialItem = socialNetwork.map((network) =>
+    <a
+      key={network.id}
       className='
         text-2xl mb-5 
         hover:text-purple 
         transition-all ease-in-out duration-300
-      ' 
+      '
       href={network.link}
       target="_blank"
       rel="noreferrer"

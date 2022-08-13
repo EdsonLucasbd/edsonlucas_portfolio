@@ -1,6 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
 
-import { post } from 'tiny-json-http';
 import { HeaderTypes, QueryResponseType } from "./types";
 
 const API_URL = 'https://graphql.datocms.com/'
@@ -64,6 +63,7 @@ const fullQuery = gql`
           }
         }
         projectName
+        projectDescription
         projectLink
         id
       }

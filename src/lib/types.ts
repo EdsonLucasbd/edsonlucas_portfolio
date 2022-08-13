@@ -43,6 +43,7 @@ export type Project = {
       }
       id: string,
       projectName: string,
+      projectDescription: string,
       projectLink: string,
     }
   }
@@ -91,12 +92,13 @@ export type QueryResponseType = {
       }
       id: string,
       projectName: string,
+      projectDescription: string,
       projectLink: string,
     }
   }
   tab: {
     icon: {
-      responsiveImage: ResponsiveImageType,
+      url: string,
     }
     tabTitle: string
   }

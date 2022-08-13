@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Navigation, Pagination, A11y } from 'swiper';
-import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Image, ResponsiveImageType } from 'react-datocms';
 
@@ -11,24 +11,23 @@ export interface IProjects {
     }
     id: string,
     projectName: string,
+    projectDescription: string,
     projectLink: string,
   }];
 }
 
 export const ProjectCarousel = ({ projects }: IProjects) => {
-  const [subtitle, setSubtitle] = useState('')
-  const swiperSlide = useSwiperSlide()
-
-  // const changeSubtitle = (slide) => {
-  //   swiperSlide.isActive && (
-  //     setSubtitle()
-  //   )
-  // }
 
   const projectsList = projects.map((project) =>
-    <SwiperSlide key={project.id}>
-      <Image data={project.projectIcon.responsiveImage} />
-    </SwiperSlide>,
+    <>
+      <SwiperSlide key={project.id}>
+        <Image data={project.projectIcon.responsiveImage} />
+        <div className="title text-2xl">{project.projectName}</div>
+        <div className="subtitle font-body text-base">{project.projectDescription}</div>
+        <a role={'button'} className="absolute rounded flex justify-center items-center top-96 w-[8.07rem] h-[1.94rem] bg-current-line text-base" href={project.projectLink} target='_blank' rel='noreferrer noopener'>Ver projeto</a>
+      </SwiperSlide>,
+    </>
+
   )
 
   return (
@@ -41,15 +40,11 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
         slidesPerView={3}
         navigation={true}
         draggable={true}
-        pagination={{ clickable: true }}
         loop={true}
-        onSlideChange={() => {
-
-        }}
       >
         {projectsList}
       </Swiper>
-      <p>{subtitle}</p>
+      {/* <p>{subtitle}</p> */}
     </div>
   );
 }
