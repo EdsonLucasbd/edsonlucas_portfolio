@@ -10,6 +10,7 @@ body {
   @apply bg-background text-foreground;
 }
 
+/* Projects carousel */
 .swiper {
   width: 45rem;
   padding: 4.7rem 0;
@@ -82,4 +83,65 @@ body {
 .swiper-slide-active .title,
 .swiper-slide-active .subtitle {
   display: flex;
+}
+
+/* Contact form */
+
+.label-float {
+  position: relative;
+  padding-top: .8125rem;
+}
+
+.label-float input {
+  border: 0;
+  border-bottom: .125rem solid #6272A4;
+  background-color: transparent;
+  margin-bottom: 1.0625rem;
+  outline: none;
+  min-width: 26.125rem;
+  font-size: 1rem;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.label-float input:focus {
+  border-bottom: .125rem solid #3951b2;
+}
+
+.label-float input::placeholder {
+  color: transparent;
+}
+
+.label-float label {
+  pointer-events: none;
+  position: absolute;
+  color: #F8F8F2;
+  font-size: 1.5rem !important;
+  top: 0;
+  left: 0;
+  margin-top: .8125rem;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+}
+
+.label-float input:required:invalid+label {
+  color: red;
+}
+
+.label-float input:focus:required:invalid {
+  border-bottom: .125rem solid red;
+}
+
+.label-float input:required:invalid+label:before {
+  content: '*';
+}
+
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label {
+  font-size: .8125rem;
+  margin-top: 0;
 }

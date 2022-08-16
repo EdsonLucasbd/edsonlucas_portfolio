@@ -6,6 +6,7 @@ import { QueryResponseType } from '@lib/types';
 import { ResponsiveImageType } from 'react-datocms';
 import { SocialLinks } from '@components/SocialLinks';
 import { ProjectCarousel } from '@components/ProjectCarousel';
+import { Contact } from '@components/Contact';
 
 type Props = {
   data: QueryResponseType
@@ -82,6 +83,7 @@ const App = ({
             <SocialLinks socialNetwork={networks} />
             <Home bgPhoto={heroBg} job={job} name={name} />
             <ProjectCarousel projects={projects} />
+            <Contact />
           </div>
         </>
       )}
