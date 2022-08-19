@@ -64,6 +64,12 @@ export type QueryResponseType = {
       responsiveImage: ResponsiveImageType,
     };
   }
+
+  contact: {
+    contactLogo: {
+      responsiveImage: ResponsiveImageType,
+    }
+  }
   sectionsHeader: {
     aSection: [{
       title: string,

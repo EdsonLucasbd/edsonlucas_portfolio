@@ -37,6 +37,14 @@ const fullQuery = gql`
       }
     }
 
+    contact {
+      contactLogo {
+        responsiveImage(imgixParams: {auto: format, fit: crop, h: "150", w: "150"}){
+          ${responsiveImageFragment}
+        }
+      }
+    }
+
     sectionsHeader {
       aSection {
         title

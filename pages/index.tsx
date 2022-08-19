@@ -11,6 +11,7 @@ import { Contact } from '@components/Contact';
 type Props = {
   data: QueryResponseType
   logoImg: ResponsiveImageType;
+  contactLogo: ResponsiveImageType;
   sections: [{
     id: string,
     title: string,
@@ -48,6 +49,7 @@ export async function getStaticProps() {
     props: {
       data,
       logoImg: data?.logo.logomarca.responsiveImage,
+      contactLogo: data?.contact.contactLogo.responsiveImage,
       sections: data?.sectionsHeader.aSection,
       heroBg: data?.home.bgPhoto.responsiveImage,
       job: data?.home.job,
@@ -62,6 +64,7 @@ export async function getStaticProps() {
 const App = ({
   data,
   logoImg,
+  contactLogo,
   sections,
   heroBg,
   job,
@@ -83,7 +86,7 @@ const App = ({
             <SocialLinks socialNetwork={networks} />
             <Home bgPhoto={heroBg} job={job} name={name} />
             <ProjectCarousel projects={projects} />
-            <Contact />
+            <Contact logo={contactLogo} />
           </div>
         </>
       )}
