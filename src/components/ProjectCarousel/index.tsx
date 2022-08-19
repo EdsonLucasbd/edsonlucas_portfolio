@@ -2,6 +2,8 @@ import React from 'react';
 import { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Fade from 'react-reveal/Fade';
+
 import { Image, ResponsiveImageType } from 'react-datocms';
 
 export interface IProjects {
@@ -32,19 +34,22 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
 
   return (
     <div id='project' className="flex flex-col justify-center items-center min-h-screen bg-gradientRadial from-comment via-current-line to-background">
-      <h1 className="text-[2.5rem] mb-[9.69rem] font-title max-w-[22.5rem] h-[7.63rem] text-center drop-shadow-lg">Conheça Alguns dos Meus Projetos</h1>
-      <Swiper
-        modules={[Navigation, Pagination, A11y]}
-        spaceBetween={-20}
-        centeredSlides={true}
-        slidesPerView={3}
-        navigation={true}
-        draggable={true}
-        loop={true}
-      >
-        {projectsList}
-      </Swiper>
-      {/* <p>{subtitle}</p> */}
+      <Fade top cascade>
+        <h1 className="text-[2.3rem] mb-[9.69rem] font-title max-w-[22.5rem] h-[7.63rem] text-center drop-shadow-lg">Conheça Alguns dos Meus Projetos</h1>
+      </Fade>
+      <Fade bottom>
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          spaceBetween={-20}
+          centeredSlides={true}
+          slidesPerView={3}
+          navigation={true}
+          draggable={true}
+          loop={true}
+        >
+          {projectsList}
+        </Swiper>
+      </Fade>
     </div>
   );
 }
