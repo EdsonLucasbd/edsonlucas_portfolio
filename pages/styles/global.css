@@ -195,6 +195,7 @@ html {
 .label-float textarea:focus+label,
 .label-float input:not(:placeholder-shown)+label,
 .label-float textarea:not(:placeholder-shown)+label {
+  color: #BD93F9;
   font-size: 1.1rem;
   margin-top: -1.5rem;
 }
