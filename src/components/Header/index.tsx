@@ -11,14 +11,7 @@ interface IHeaderProp {
 }
 
 export const Header = ({ logoImg, sections }: IHeaderProp) => {
-  let of_home = 0;
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    if (headerRef?.current) {
-      console.log(headerRef.current);
-    }
-  }, [headerRef])
+  const headerRef = useRef<HTMLDivElement>(null);
 
   function getPositionWindow() {
     let position_window = window.pageYOffset;
@@ -31,16 +24,17 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
     function scroll() {
       var currentPosition = window.scrollY;
 
-      if (currentPosition > lastPosition && window.scrollY >= 150) {
-        headerRef.current.style.transition = "transform 300ms ease 0s";
-        headerRef.current.style.transform = "translate(0, -70px)";
-        // headerRef.current.classList.remove("fixed-header");
+      if (headerRef.current) {
+        if (currentPosition > lastPosition && window.scrollY >= 150) {
+          headerRef.current.style.transition = "transform 300ms ease 0s";
+          headerRef.current.style.transform = "translate(0, -70px)";
 
-      } else {
-        headerRef.current.style.transition = "transform 300ms ease 0s";
-        headerRef.current.style.transform = "translate(0, 0)";
-        // headerRef.current.classList.add("fixed-header");
-      }
+        } else {
+          headerRef.current.style.transition = "transform 300ms ease 0s";
+          headerRef.current.style.transform = "translate(0, 0)";
+        }
+      } else return;
+
       lastPosition = currentPosition;
     }
 
