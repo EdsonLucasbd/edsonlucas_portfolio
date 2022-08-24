@@ -9,9 +9,10 @@ module.exports = {
       'background': '#282A36',
       'foreground': '#F8F8F2',
       'current-line': '#44475A',
+      'background-500': '#282A3650',
       'comment': '#6272A4',
       'purple': '#BD93F9',
-      'pink': '#FF79C6',      
+      'pink': '#FF79C6',
     },
     extend: {
       fontFamily: {
@@ -23,5 +24,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

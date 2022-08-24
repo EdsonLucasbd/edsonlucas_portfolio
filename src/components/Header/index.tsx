@@ -13,11 +13,6 @@ interface IHeaderProp {
 export const Header = ({ logoImg, sections }: IHeaderProp) => {
   const headerRef = useRef<HTMLDivElement>(null);
 
-  function getPositionWindow() {
-    let position_window = window.pageYOffset;
-    return position_window;
-  }
-
   var lastPosition = 0;
 
   useEffect(() => {
@@ -25,10 +20,14 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
       var currentPosition = window.scrollY;
 
       if (headerRef.current) {
-        if (currentPosition > lastPosition && window.scrollY >= 150) {
+        if (currentPosition > lastPosition && window.scrollY < 150) {
+          headerRef.current.classList.add("bg-current-line");
+          headerRef.current.classList.remove("bg-foreground", "bg-opacity-20", "backdrop-blur-lg");
+        }
+        else if (currentPosition > lastPosition && window.scrollY >= 150) {
           headerRef.current.style.transition = "transform 300ms ease 0s";
           headerRef.current.style.transform = "translate(0, -70px)";
-
+          headerRef.current.classList.add("bg-foreground", "bg-opacity-20", "backdrop-blur-lg");
         } else {
           headerRef.current.style.transition = "transform 300ms ease 0s";
           headerRef.current.style.transform = "translate(0, 0)";
@@ -51,7 +50,7 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
 
   return (
     <div className="main-header">
-      <header ref={headerRef} className="container mx-auto h-12 flex items-center justify-between p-4 bg-background z-50 fixed-header">
+      <header ref={headerRef} className="w-screen mx-auto h-12 flex items-center justify-between p-4 z-50 fixed-header">
         <>
           <a href="#home" aria-label="Voltar para a sessão inicial do portfólio">
             <Image data={logoImg} />

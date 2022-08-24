@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiLinkedin, FiInstagram, FiGithub } from 'react-icons/fi';
+import Fade from 'react-reveal/Fade';
 
 interface ISocialLinks {
   socialNetwork: [{
@@ -45,9 +46,11 @@ export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
   )
   return (
     <>
-      <span className='fixed flex flex-col left-10 bottom-4'>
-        {socialItem}
-      </span>
+      <Fade left cascade>
+        <span className='fixed flex flex-col left-10 bottom-4'>
+          {socialItem}
+        </span>
+      </Fade>
     </>
   );
 }
