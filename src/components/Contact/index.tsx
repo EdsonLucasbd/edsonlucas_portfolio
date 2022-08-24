@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Fade from 'react-reveal/Fade';
 import * as yup from 'yup';
 import emailjs from '@emailjs/browser';
+import { Loader } from '@components/Loader';
 
 
 interface IContact {
@@ -43,16 +44,16 @@ export const Contact = ({ logo }: IContact) => {
         }}
           validationSchema={formSchema}
           onSubmit={(values, { setSubmitting, resetForm, }) => {
+            setIsLoading(true)
             setTimeout(() => {
               sendEmail(values)
-              console.log("submit", values);
               setSubmitting(false)
-              // setIsLoading(true)
-            }, 1000)
-            resetForm();
-            // setIsLoading(false)
+              setIsLoading(false)
+              setSubmitting(false)
+              resetForm();
+            }, 1500)
           }}>
-          {({ errors, isValid, handleSubmit }) => (
+          {({ isSubmitting, isValid, handleSubmit }) => (
             <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative left-[20rem] top-0 h-[39.625rem] w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
               <legend className='font-title text-[3.5rem] top-0 absolute'>Entre em contato</legend>
 
@@ -95,7 +96,18 @@ export const Contact = ({ logo }: IContact) => {
                   </span>
                 </div>
               </div>
-              <button type='submit' className='absolute w-56 h-[3.8125rem] rounded-md top-[34rem] bg-comment text-2xl font-body shadow-md disabled:bg-background disabled:opacity-50 disabled:cursor-not-allowed' disabled={!isValid}>Enviar mensagem</button>
+              <button
+                type='submit'
+                className='absolute w-56 h-[3.8125rem] rounded-md top-[34rem] 
+                  flex justify-center items-center
+                  bg-comment text-2xl font-body shadow-md 
+                  disabled:bg-background disabled:opacity-50 
+                  disabled:cursor-not-allowed transition-all duration-300
+                  hover:brightness-110'
+                disabled={!isValid && !isSubmitting}
+              >
+                {isLoading ? <Loader size={24} /> : `Enviar mensagem`}
+              </button>
             </Form>
           )}
         </Formik>
