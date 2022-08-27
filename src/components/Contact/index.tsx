@@ -17,8 +17,8 @@ export const Contact = ({ logo }: IContact) => {
   const formSchema = yup.object().shape({
     visitorName: yup.string().min(3, 'Seu nome é maior que isso...').required('Informe seu nome.'),
     visitorEmail: yup.string().email('Informe um email válido.').required('Informe seu email.'),
-    phone: yup.string().required('É importante informar um telefone para contato.'),
-    message: yup.string().required('Qual a sua mensagem?')
+    phone: yup.string().required('Seu telefone é importante.'),
+    message: yup.string().min(10, 'A mensagem deve ter pelo menos 10 caracteres.').required('Qual a sua mensagem?')
   })
 
   const sendEmail = (object: Record<string, unknown>) => {
@@ -33,7 +33,7 @@ export const Contact = ({ logo }: IContact) => {
   return (
     <div id='contact' className="flex flex-row justify-center items-center min-h-screen bg-gradientRadial from-comment via-current-line to-background">
       <Fade left>
-        <Image data={logo} />
+        <Image data={logo} className="hidden sm:block" />
       </Fade>
       <Fade top>
         <Formik initialValues={{
@@ -54,28 +54,28 @@ export const Contact = ({ logo }: IContact) => {
             }, 1500)
           }}>
           {({ isSubmitting, isValid, handleSubmit }) => (
-            <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative left-[20rem] top-0 h-[39.625rem] w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
-              <legend className='font-title text-[3.5rem] top-0 absolute'>Entre em contato</legend>
+            <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative sm:left-[20rem] bottom-8 sm:bottom-0 sm:top-0 h-[34rem] sm:h-[39.625rem] w-[20.5rem] sm:w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
+              <legend className='font-title text-4xl sm:text-[3.5rem] top-4 sm:top-3 absolute'>Entre em contato</legend>
 
               <div className="form-group">
                 <div className="label-float flex flex-col">
                   <Field type="text" name="visitorName" id="visitorName" placeholder=' ' />
                   <label className='font-body'>Seu nome:</label>
-                  <span className='text-pink absolute -bottom-1'>
+                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
                     <ErrorMessage name="visitorName" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
                   <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' ' />
-                  <label className='font-body'>Seu email</label>
-                  <span className='text-pink absolute -bottom-1'>
+                  <label className='font-body'>Seu email:</label>
+                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
                     <ErrorMessage name="visitorEmail" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
                   <Field type="phone" name="phone" id="phone" placeholder=' ' />
                   <label className='font-body'>Seu telefone:</label>
-                  <span className='text-pink absolute -bottom-1'>
+                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
                     <ErrorMessage name="phone" />
                   </span>
                 </div>
@@ -91,16 +91,16 @@ export const Contact = ({ logo }: IContact) => {
                     wrap="hard"
                   />
                   <label className='font-body'>Sua mensagem:</label>
-                  <span className='text-pink absolute -bottom-1'>
+                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
                     <ErrorMessage name="message" />
                   </span>
                 </div>
               </div>
               <button
                 type='submit'
-                className='absolute w-56 h-[3.8125rem] rounded-md top-[34rem] 
+                className='absolute w-48 sm:w-56 h-[3.8125rem] rounded-md top-[29.5rem] sm:top-[34rem] 
                   flex justify-center items-center
-                  bg-comment text-2xl font-body shadow-md 
+                  bg-comment text-xl sm:text-2xl font-body shadow-md 
                   disabled:bg-background disabled:opacity-50 
                   disabled:cursor-not-allowed transition-all duration-300
                   hover:brightness-110'

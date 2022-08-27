@@ -81,7 +81,7 @@ const App = ({
             <meta name="description" />
             <link rel="icon" href={tab?.icon.url} />
           </Head>
-          <div className="max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
+          <div className="max-w-md sm:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
             <Header logoImg={logoImg} sections={sections} />
             <SocialLinks socialNetwork={networks} />
             <Home bgPhoto={heroBg} job={job} name={name} />

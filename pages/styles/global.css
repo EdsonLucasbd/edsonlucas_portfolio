@@ -89,6 +89,24 @@ html {
   display: flex;
 }
 
+@media (max-width: 640px) {
+  .swiper {
+    width: 24rem;
+  }
+
+  .swiper-wrapper {
+    left: 1rem;
+  }
+
+  .swiper-slide-prev,
+  .swiper-slide-next,
+  .swiper-slide-active {
+    width: 8rem !important;
+    height: 7.82rem !important;
+  }
+
+}
+
 /* Header */
 .main-header {
   position: relative;
@@ -163,6 +181,19 @@ html {
   -moz-transition: all .3s ease-out;
 }
 
+@media (max-width: 640px) {
+
+  .label-float input,
+  .label-float textarea {
+    min-width: 16.125rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .form-group {
+    height: 65%;
+  }
+}
+
 .label-float textarea+label {
   pointer-events: none;
   position: absolute;
@@ -198,6 +229,11 @@ html {
   color: #BD93F9;
   font-size: 1.1rem;
   margin-top: -1.5rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
 
 /* Loader */
