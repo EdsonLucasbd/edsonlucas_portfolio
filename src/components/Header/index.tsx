@@ -50,7 +50,7 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
 
   return (
     <div className="main-header">
-      <header ref={headerRef} className="w-screen mx-auto h-12 flex items-center justify-between p-4 z-50 fixed-header">
+      <header ref={headerRef} className="w-full laptop:w-screen mx-auto h-12 flex items-center justify-between p-4 z-50 fixed-header">
         <>
           <a href="#home" aria-label="Voltar para a sessão inicial do portfólio">
             <Image data={logoImg} />

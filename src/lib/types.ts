@@ -20,6 +20,9 @@ export type HomeTypes = {
     bgPhoto: {
       responsiveImage: ResponsiveImageType,
     };
+    mobileBgPhoto: {
+      responsiveImage: ResponsiveImageType,
+    };
     job: string;
     name: string;
   }
@@ -79,6 +82,9 @@ export type QueryResponseType = {
   }
   home: {
     bgPhoto: {
+      responsiveImage: ResponsiveImageType,
+    };
+    mobileBgPhoto: {
       responsiveImage: ResponsiveImageType,
     };
     job: string;

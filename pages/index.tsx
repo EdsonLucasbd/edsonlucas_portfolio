@@ -9,15 +9,16 @@ import { ProjectCarousel } from '@components/ProjectCarousel';
 import { Contact } from '@components/Contact';
 
 type Props = {
-  data: QueryResponseType
-  logoImg: ResponsiveImageType;
-  contactLogo: ResponsiveImageType;
+  data: QueryResponseType,
+  logoImg: ResponsiveImageType,
+  contactLogo: ResponsiveImageType,
   sections: [{
     id: string,
     title: string,
     link: string,
   }];
-  heroBg: ResponsiveImageType;
+  heroBg: ResponsiveImageType,
+  mobileBgPhoto: ResponsiveImageType,
   job: string
   name: string
   networks: [{
@@ -52,6 +53,7 @@ export async function getStaticProps() {
       contactLogo: data?.contact.contactLogo.responsiveImage,
       sections: data?.sectionsHeader.aSection,
       heroBg: data?.home.bgPhoto.responsiveImage,
+      mobileBgPhoto: data?.home.mobileBgPhoto.responsiveImage,
       job: data?.home.job,
       name: data?.home.name,
       networks: data?.network.socialNetwork,
@@ -67,6 +69,7 @@ const App = ({
   contactLogo,
   sections,
   heroBg,
+  mobileBgPhoto,
   job,
   name,
   networks,
@@ -81,10 +84,10 @@ const App = ({
             <meta name="description" />
             <link rel="icon" href={tab?.icon.url} />
           </Head>
-          <div className="max-w-md sm:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
+          <div className="max-w-md mobile:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
             <Header logoImg={logoImg} sections={sections} />
             <SocialLinks socialNetwork={networks} />
-            <Home bgPhoto={heroBg} job={job} name={name} />
+            <Home bgPhoto={[heroBg, mobileBgPhoto]} job={job} name={name} />
             <ProjectCarousel projects={projects} />
             <Contact logo={contactLogo} />
           </div>

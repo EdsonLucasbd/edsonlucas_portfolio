@@ -33,7 +33,7 @@ export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
     <a
       key={network.id}
       className='
-        text-2xl mb-5 
+        text-xl mobile:text-2xl mb-5 ml-3 mobile:ml-0 
         hover:text-purple 
         transition-all ease-in-out duration-300
       '
@@ -47,7 +47,7 @@ export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
   return (
     <>
       <Fade left cascade>
-        <span className='fixed flex flex-col left-10 bottom-4'>
+        <span className='fixed flex flex-row mobile:flex-col bottom-0 mobile:left-10 mobile:bottom-4'>
           {socialItem}
         </span>
       </Fade>

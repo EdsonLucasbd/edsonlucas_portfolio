@@ -60,6 +60,13 @@ const fullQuery = gql`
           height
         }
       }
+      mobileBgPhoto {
+        responsiveImage(imgixParams: {fm: webp, auto: compress, fit: max}, sizes: "(max-width: 460px) 100vw, 600px") {
+          src
+          width
+          height
+        }
+      }
       job
       name
     }

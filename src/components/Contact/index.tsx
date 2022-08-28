@@ -33,7 +33,7 @@ export const Contact = ({ logo }: IContact) => {
   return (
     <div id='contact' className="flex flex-row justify-center items-center min-h-screen bg-gradientRadial from-comment via-current-line to-background">
       <Fade left>
-        <Image data={logo} className="hidden sm:block" />
+        <Image data={logo} className="hidden laptop:hidden desktop:block" />
       </Fade>
       <Fade top>
         <Formik initialValues={{
@@ -54,28 +54,28 @@ export const Contact = ({ logo }: IContact) => {
             }, 1500)
           }}>
           {({ isSubmitting, isValid, handleSubmit }) => (
-            <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative sm:left-[20rem] bottom-8 sm:bottom-0 sm:top-0 h-[34rem] sm:h-[39.625rem] w-[20.5rem] sm:w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
-              <legend className='font-title text-4xl sm:text-[3.5rem] top-4 sm:top-3 absolute'>Entre em contato</legend>
+            <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative left-0 laptop:left-[20rem] bottom-8 mobile:bottom-0 mobile:top-0 h-[34rem] mobile:h-[39.625rem] w-[20.5rem] mobile:w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
+              <legend className='font-title text-4xl laptop:text-[3.5rem] top-4 laptop:top-3 absolute'>Entre em contato</legend>
 
               <div className="form-group">
                 <div className="label-float flex flex-col">
                   <Field type="text" name="visitorName" id="visitorName" placeholder=' ' />
                   <label className='font-body'>Seu nome:</label>
-                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
                     <ErrorMessage name="visitorName" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
                   <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' ' />
                   <label className='font-body'>Seu email:</label>
-                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
                     <ErrorMessage name="visitorEmail" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
                   <Field type="phone" name="phone" id="phone" placeholder=' ' />
                   <label className='font-body'>Seu telefone:</label>
-                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
                     <ErrorMessage name="phone" />
                   </span>
                 </div>
@@ -91,16 +91,16 @@ export const Contact = ({ logo }: IContact) => {
                     wrap="hard"
                   />
                   <label className='font-body'>Sua mensagem:</label>
-                  <span className='text-pink absolute bottom-3 sm:-bottom-1'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
                     <ErrorMessage name="message" />
                   </span>
                 </div>
               </div>
               <button
                 type='submit'
-                className='absolute w-48 sm:w-56 h-[3.8125rem] rounded-md top-[29.5rem] sm:top-[34rem] 
-                  flex justify-center items-center
-                  bg-comment text-xl sm:text-2xl font-body shadow-md 
+                className='absolute w-48 tablet:w-56 h-[3.8125rem] rounded-md top-[29.5rem] laptop:top-[34rem] 
+                  tablet:top-[34.5rem] mobile:top-[33rem] flex justify-center items-center
+                  bg-comment text-xl tablet:text-2xl font-body shadow-md 
                   disabled:bg-background disabled:opacity-50 
                   disabled:cursor-not-allowed transition-all duration-300
                   hover:brightness-110'
