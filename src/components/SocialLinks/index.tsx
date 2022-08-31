@@ -35,7 +35,7 @@ export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
       className='
         text-xl mobile:text-2xl mb-5 ml-3 mobile:ml-0 
         hover:text-purple 
-        transition-all ease-in-out duration-300
+        transition-all ease-in-out duration-300 mobile:text-foreground text-foreground-500
       '
       href={network.link}
       target="_blank"

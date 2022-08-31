@@ -24,6 +24,10 @@ export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
   }
 
   useEffect(() => {
+    if (window.innerWidth < 640) {
+      setHomeBgImage(bgPhoto[1])
+    }
+
     const debouncedHandleResize = debounce(function () {
       if (window.innerWidth < 640) {
         setHomeBgImage(bgPhoto[1])

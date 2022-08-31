@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Image, ResponsiveImageType } from "react-datocms";
 
@@ -45,7 +46,7 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
   }, [])
 
   const sectionItems = sections.map((section) =>
-    <a key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground">{section.title}</a>
+    <Link key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground">{section.title}</Link>
   )
 
   return (

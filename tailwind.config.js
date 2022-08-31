@@ -8,6 +8,7 @@ module.exports = {
     colors: {
       'background': '#282A36',
       'foreground': '#F8F8F2',
+      'foreground-500': '#F8F8F250',
       'current-line': '#44475A',
       'background-500': '#282A3650',
       'comment': '#6272A4',
