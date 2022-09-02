@@ -7,6 +7,7 @@ import { ResponsiveImageType } from 'react-datocms';
 import { SocialLinks } from '@components/SocialLinks';
 import { ProjectCarousel } from '@components/ProjectCarousel';
 import { Contact } from '@components/Contact';
+import { BackToTopButton } from '@components/ScrollTopButton';
 
 type Props = {
   data: QueryResponseType,
@@ -90,6 +91,7 @@ const App = ({
             <Home bgPhoto={[heroBg, mobileBgPhoto]} job={job} name={name} />
             <ProjectCarousel projects={projects} />
             <Contact logo={contactLogo} />
+            <BackToTopButton />
           </div>
         </>
       )}
