@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Fade from 'react-reveal/Fade';
 import * as yup from 'yup';
 import emailjs from '@emailjs/browser';
 import { Loader } from '@components/Loader';
+import { FaAngleUp } from 'react-icons/fa'
 
 
 interface IContact {
@@ -59,23 +60,23 @@ export const Contact = ({ logo }: IContact) => {
 
               <div className="form-group">
                 <div className="label-float flex flex-col">
-                  <Field type="text" name="visitorName" id="visitorName" placeholder=' ' />
-                  <label className='font-body'>Seu nome:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
+                  <Field type="text" name="visitorName" id="visitorName" placeholder=' ' aria-labelledby="nameLabel" />
+                  <label className='font-body' id='nameLabel'>Seu nome:</label>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorName" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
-                  <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' ' />
-                  <label className='font-body'>Seu email:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
+                  <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' ' aria-labelledby="mailLabel" />
+                  <label className='font-body' id='mailLabel'>Seu email:</label>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorEmail" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
-                  <Field type="phone" name="phone" id="phone" placeholder=' ' />
-                  <label className='font-body'>Seu telefone:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
+                  <Field type="phone" name="phone" id="phone" placeholder=' ' aria-labelledby="phoneLabel" />
+                  <label className='font-body' id='phoneLabel'>Seu telefone:</label>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="phone" />
                   </span>
                 </div>
@@ -89,9 +90,10 @@ export const Contact = ({ logo }: IContact) => {
                     rows={4}
                     cols={30}
                     wrap="hard"
+                    aria-labelledby="messageLabel"
                   />
-                  <label className='font-body'>Sua mensagem:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1'>
+                  <label className='font-body' id='messageLabel'>Sua mensagem:</label>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="message" />
                   </span>
                 </div>
@@ -112,7 +114,6 @@ export const Contact = ({ logo }: IContact) => {
           )}
         </Formik>
       </Fade>
-
     </div>
   )
 }

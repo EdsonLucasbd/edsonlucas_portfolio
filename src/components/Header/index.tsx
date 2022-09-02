@@ -27,7 +27,6 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
         }
         else if (currentPosition > lastPosition && window.scrollY >= 150) {
           headerRef.current.style.transition = "transform 300ms ease 0s";
-          headerRef.current.style.transform = "translate(0, -70px)";
           headerRef.current.classList.add("bg-foreground", "bg-opacity-20", "backdrop-blur-lg");
         } else {
           headerRef.current.style.transition = "transform 300ms ease 0s";
