@@ -11,7 +11,7 @@ body {
 }
 
 html {
-  @apply scroll-smooth;
+  @apply scroll-smooth scrollbar-none;
 }
 
 /* Projects carousel */
