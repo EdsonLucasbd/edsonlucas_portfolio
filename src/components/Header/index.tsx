@@ -13,6 +13,7 @@ interface IHeaderProp {
 
 export const Header = ({ logoImg, sections }: IHeaderProp) => {
   const headerRef = useRef<HTMLDivElement>(null);
+  const sectionsRef = useRef<HTMLDivElement>(null);
 
   var lastPosition = 0;
 
@@ -39,6 +40,36 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
 
     window.addEventListener("scroll", scroll)
 
+    const menuItems = Array.from(sectionsRef.current?.children!)
+
+    const scrollToPosition = (to: number) => {
+      window.scroll({
+        top: to,
+        behavior: 'smooth',
+      });
+    }
+
+    const getScrollTop = (element: HTMLElement) => {
+      if (element !== null) {
+        const id = element.getAttribute('href') as string;
+        const itemElement = document.querySelector(id) as HTMLElement
+        return itemElement.offsetTop;
+      }
+    }
+
+    const scrollOnClick = (e: Event) => {
+      let event = e.target
+
+      e.preventDefault();
+      const to = getScrollTop(event as HTMLElement);
+
+      scrollToPosition(to as number);
+    }
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', scrollOnClick);
+    })
+
     return () => {
       window.removeEventListener("scroll", scroll)
     }
@@ -53,10 +84,8 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
     <div className="main-header">
       <header ref={headerRef} className="w-full laptop:w-screen mx-auto h-12 flex items-center justify-between p-4 z-50 fixed-header">
         <>
-          <a href="#home" aria-label="Voltar para a seção inicial do portfólio">
-            <Image data={logoImg} />
-          </a>
-          <span className="flex items-center justify-between w-44 text-purple">
+          <Image data={logoImg} />
+          <span ref={sectionsRef} className="flex items-center justify-between w-44 text-purple">
             {sectionItems}
           </span>
         </>
