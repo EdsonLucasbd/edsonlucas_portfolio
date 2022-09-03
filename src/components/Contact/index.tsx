@@ -34,7 +34,7 @@ export const Contact = ({ logo }: IContact) => {
   return (
     <div id='contact' className="flex flex-row justify-center items-center min-h-screen bg-gradientRadial from-comment via-current-line to-background">
       <Fade left>
-        <Image data={logo} className="hidden laptop:hidden desktop:block" />
+        <Image data={logo} className="hidden laptop:hidden desktop:block" aria-hidden="true" />
       </Fade>
       <Fade top>
         <Formik initialValues={{

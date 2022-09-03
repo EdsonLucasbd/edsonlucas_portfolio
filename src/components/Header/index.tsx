@@ -45,7 +45,7 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
   }, [])
 
   const sectionItems = sections.map((section) =>
-    <Link key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground">{section.title}</Link>
+    <Link key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground" aria-label={`Ir para a seção de ${section.title}`}>{section.title}</Link>
   )
 
   return (

@@ -85,14 +85,14 @@ const App = ({
             <meta name="description" />
             <link rel="icon" href={tab?.icon.url} />
           </Head>
-          <div className="max-w-md mobile:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
+          <main className="max-w-md mobile:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
             <Header logoImg={logoImg} sections={sections} />
             <SocialLinks socialNetwork={networks} />
             <Home bgPhoto={[heroBg, mobileBgPhoto]} job={job} name={name} />
             <ProjectCarousel projects={projects} />
             <Contact logo={contactLogo} />
             <BackToTopButton />
-          </div>
+          </main>
         </>
       )}
     </>

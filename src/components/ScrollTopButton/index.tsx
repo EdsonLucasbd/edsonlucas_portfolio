@@ -30,6 +30,7 @@ export const BackToTopButton = () => {
             rounded-[50%] h-8 w-8 mobile:h-12 mobile:w-12 text-foreground 
             cursor-pointer transition-all ease-in-out animate-bounce'
           onClick={goToTop}
+          aria-label='Voltar para o início do portfólio.'
         />
       )}
     </div>
