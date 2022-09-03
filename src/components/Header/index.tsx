@@ -44,15 +44,16 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
     }
   }, [])
 
+
   const sectionItems = sections.map((section) =>
-    <Link key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground" aria-label={`Ir para a seção de ${section.title}`}>{section.title}</Link>
+    <a key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground" aria-label={`Ir para a seção de ${section.title}`}>{section.title}</a>
   )
 
   return (
     <div className="main-header">
       <header ref={headerRef} className="w-full laptop:w-screen mx-auto h-12 flex items-center justify-between p-4 z-50 fixed-header">
         <>
-          <a href="#home" aria-label="Voltar para a sessão inicial do portfólio">
+          <a href="#home" aria-label="Voltar para a seção inicial do portfólio">
             <Image data={logoImg} />
           </a>
           <span className="flex items-center justify-between w-44 text-purple">

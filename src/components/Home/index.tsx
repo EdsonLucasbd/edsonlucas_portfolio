@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ResponsiveImageType } from "react-datocms";
+import { BsChevronDown } from "react-icons/bs";
 
 import Fade from 'react-reveal/Fade';
 
@@ -7,6 +8,15 @@ interface IHomeProp {
   bgPhoto: ResponsiveImageType[]
   job: string;
   name: string;
+}
+
+export const ScrollDown = () => {
+  return (
+    <div className="absolute left-[50%] bottom-2 mobile:bottom-8 animate-bounce-slow flex flex-col items-center text-foreground-900">
+      <p>Scroll</p>
+      <BsChevronDown className="h-8 w-8" />
+    </div>
+  )
 }
 
 export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
@@ -51,6 +61,7 @@ export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
             <h2 className="font-body text-xl mobile:text-2xl">{job}</h2>
           </Fade>
         </div>
+        <ScrollDown />
       </div>
     </>
   );

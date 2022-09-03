@@ -9,6 +9,7 @@ module.exports = {
       'background': '#282A36',
       'foreground': '#F8F8F2',
       'foreground-500': '#F8F8F250',
+      'foreground-900': '#F8F8F290',
       'current-line': '#44475A',
       'background-500': '#282A3650',
       'comment': '#6272A4',
@@ -29,6 +30,10 @@ module.exports = {
       backgroundImage: {
         'gradientRadial': 'radial-gradient(var(--tw-gradient-stops))',
       },
+      animation: {
+        'bounce-slow': 'bounce 2s infinite;',
+        'bounce-medium': 'bounce 1.5s infinite;'
+      }
     },
   },
   plugins: [
