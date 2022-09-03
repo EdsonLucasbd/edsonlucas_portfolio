@@ -92,6 +92,7 @@ html {
 @media (max-width: 640px) {
   .swiper {
     width: 24rem;
+    bottom: 2rem;
   }
 
   .swiper-wrapper {
