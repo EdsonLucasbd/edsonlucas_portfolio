@@ -85,7 +85,8 @@ html {
 }
 
 .swiper-slide-active .title,
-.swiper-slide-active .subtitle {
+.swiper-slide-active .subtitle,
+.swiper-slide-active .linkButton {
   display: flex;
 }
 
