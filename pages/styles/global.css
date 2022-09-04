@@ -64,6 +64,12 @@ html {
   color: #6272A4;
 }
 
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transition: all .2s ease-in-out;
+  color: #899fe2;
+}
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
   font-size: 3.5rem;
