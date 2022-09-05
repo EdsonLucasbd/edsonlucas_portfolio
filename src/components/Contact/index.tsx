@@ -17,7 +17,7 @@ export const Contact = ({ logo }: IContact) => {
 
   const formSchema = yup.object().shape({
     visitorName: yup.string().min(3, 'Seu nome é maior que isso...').required('Informe seu nome.'),
-    visitorEmail: yup.string().email('Informe um email válido.').required('Informe seu email.'),
+    visitorEmail: yup.string().email('Informe um email válido.'),
     phone: yup.string().required('Seu telefone é importante.'),
     message: yup.string().min(10, 'A mensagem deve ter pelo menos 10 caracteres.').required('Qual a sua mensagem?')
   })
@@ -60,21 +60,27 @@ export const Contact = ({ logo }: IContact) => {
 
               <div className="form-group">
                 <div className="label-float flex flex-col">
-                  <Field type="text" name="visitorName" id="visitorName" placeholder=' ' aria-labelledby="nameLabel" />
+                  <Field type="text" name="visitorName" id="visitorName" placeholder=' '
+                  // aria-labelledby="nameLabel" 
+                  />
                   <label className='font-body' id='nameLabel'>Seu nome:</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorName" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
-                  <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' ' aria-labelledby="mailLabel" />
-                  <label className='font-body' id='mailLabel'>Seu email:</label>
+                  <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' '
+                  // aria-labelledby="mailLabel" 
+                  />
+                  <label className='font-body' id='mailLabel'>Seu email <em className='text-sm not-italic text-foreground-900'>(Opcional)</em>:</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorEmail" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
-                  <Field type="phone" name="phone" id="phone" placeholder=' ' aria-labelledby="phoneLabel" />
+                  <Field type="phone" name="phone" id="phone" placeholder=' '
+                  // aria-labelledby="phoneLabel" 
+                  />
                   <label className='font-body' id='phoneLabel'>Seu telefone:</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="phone" />
@@ -90,7 +96,7 @@ export const Contact = ({ logo }: IContact) => {
                     rows={4}
                     cols={30}
                     wrap="hard"
-                    aria-labelledby="messageLabel"
+                  // aria-labelledby="messageLabel"
                   />
                   <label className='font-body' id='messageLabel'>Sua mensagem:</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>

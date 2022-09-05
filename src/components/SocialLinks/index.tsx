@@ -41,6 +41,7 @@ export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
       target="_blank"
       rel="noreferrer"
       aria-label={`Acesse meu perfil no ${network.networkName}`}
+      role="button"
     >
       {icon(network.networkName)}
     </a>

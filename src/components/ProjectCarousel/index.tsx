@@ -35,7 +35,9 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
   return (
     <div id='project' className="flex flex-col justify-center items-center min-h-screen bg-gradientRadial from-comment via-current-line to-background">
       <Fade top cascade>
-        <h3 className="text-4xl mobile:text-[2.3rem] mb-[5.69rem] font-title max-w-[22.5rem] h-[7.63rem] text-center drop-shadow-lg">Conheça Alguns dos Meus Projetos</h3>
+        <>
+          <h3 className="text-4xl mobile:text-[2.3rem] mb-[5.69rem] font-title max-w-[22.5rem] h-[7.63rem] text-center drop-shadow-lg">Conheça Alguns dos Meus Projetos</h3>
+        </>
       </Fade>
       <Fade bottom>
         <Swiper
