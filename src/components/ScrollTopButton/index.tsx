@@ -27,7 +27,7 @@ export const BackToTopButton = () => {
         <FaAngleUp
           className='fixed bottom-10 right-6 z-20 opacity-50 hover:opacity-100 
             hover:text-purple bg-opacity-0 border-solid border-[.125rem] 
-            rounded-[50%] h-8 w-8 mobile:h-12 mobile:w-12 text-foreground 
+            rounded-[50%] h-8 w-8 sm:h-12 sm:w-12 text-foreground 
             cursor-pointer transition-all ease-in-out'
           onClick={goToTop}
           aria-label='Voltar para o início do portfólio.'
