@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="New_portfolio" />
+  <img src="https://www.datocms-assets.com/66381/1655646077-el.png" alt="portfólio logomarca" />
 
   &#xa0;
 
