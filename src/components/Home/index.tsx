@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { ResponsiveImageType } from "react-datocms";
-import { BsChevronDown } from "react-icons/bs";
 
 import Fade from 'react-reveal/Fade';
 
@@ -8,15 +7,6 @@ interface IHomeProp {
   bgPhoto: ResponsiveImageType[]
   job: string;
   name: string;
-}
-
-export const ScrollDown = () => {
-  return (
-    <div className="absolute left-[50%] bottom-2 mobile:bottom-8 animate-bounce-slow flex flex-col items-center text-foreground-900">
-      <p aria-label="Role para baixo para conhecer meus projetos">Scroll</p>
-      <BsChevronDown className="h-8 w-8" />
-    </div>
-  )
 }
 
 export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
@@ -54,16 +44,16 @@ export const Home = ({ bgPhoto, job, name }: IHomeProp) => {
 
   return (
     <>
-      <div id="home" className="max-w-md mobile:max-w-full bg-center mx-auto h-screen bg-no-repeat bg-cover" style={{ backgroundImage: `url(${homeBgImage?.src})` }}>
-        <div className="flex flex-col pt-96 mobile:pt-[18.63rem] pl-8 mobile:pl-36">
+      <div id="home" className="max-w-md sm:max-w-full bg-center mx-auto h-screen bg-no-repeat bg-cover" style={{ backgroundImage: `url(${homeBgImage?.src})` }}>
+        <div className="flex flex-col pt-96 sm:pt-[18.63rem] pl-8 sm:pl-36">
           <Fade left cascade>
             <>
-              <h1 className="font-title text-4xl mobile:text-[3.5rem]">{name}</h1>
-              <h2 className="font-body text-xl mobile:text-2xl">{job}</h2>
+              <h1 className="font-title text-4xl sm:text-[3.5rem]">{name}</h1>
+              <h2 className="font-body text-xl sm:text-2xl">{job}</h2>
             </>
           </Fade>
         </div>
-        <ScrollDown />
+        <div className="scrollIcon w-[1.875rem] h-[3.125rem] -ml-[.75rem] desktop:-ml-[3.75rem] top-[95%] z-10 -mt-[2.1875rem] rounded-3xl shadow-[inset_0_0_0_.0625rem_#fff]" aria-hidden="true"></div>
       </div>
     </>
   );

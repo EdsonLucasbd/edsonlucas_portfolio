@@ -267,3 +267,49 @@ input:-webkit-autofill:focus {
     stroke-dashoffset: -124;
   }
 }
+
+/* Scroll Icon */
+
+.scrollIcon,
+.scrollIcon:before {
+  position: absolute;
+  left: 50%;
+}
+
+.scrollIcon:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #BD93F9;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  -webkit-animation-duration: 1.8s;
+  animation-duration: 1.8s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+  animation-name: scroll;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
