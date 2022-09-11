@@ -18,6 +18,8 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
   var lastPosition = 0;
 
   useEffect(() => {
+    const menuItems = Array.from(sectionsRef.current?.children!)
+
     function scroll() {
       var currentPosition = window.scrollY;
 
@@ -35,12 +37,26 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
         }
       } else return;
 
+      if (sectionsRef.current) {
+        if (window.scrollY >= 558 && window.scrollY < 1490 && window.innerWidth > 640) {
+          menuItems[0].classList.add('text-purple')
+        } else if (window.scrollY >= 558 && window.scrollY < 1330 && window.innerWidth <= 640) {
+          menuItems[0].classList.add('text-purple')
+        } else menuItems[0].classList.remove('text-purple')
+
+        if (window.scrollY > 1490 && window.innerWidth > 640) {
+          menuItems[1].classList.add('text-purple')
+        } else if (window.scrollY > 1330 && window.innerWidth <= 640) {
+          menuItems[1].classList.add('text-purple')
+        } else menuItems[1].classList.remove('text-purple')
+      } else return;
+
       lastPosition = currentPosition;
+      console.log(lastPosition);
     }
 
-    window.addEventListener("scroll", scroll)
 
-    const menuItems = Array.from(sectionsRef.current?.children!)
+    window.addEventListener("scroll", scroll)
 
     const scrollToPosition = (to: number) => {
       window.scroll({
@@ -77,7 +93,7 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
 
 
   const sectionItems = sections.map((section) =>
-    <a key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-foreground" aria-label={`Ir para a seção de ${section.title}`}>{section.title}</a>
+    <a key={section.id} href={section.link} className="font-body text-base transition-all ease-in-out duration-300 hover:text-purple" aria-label={`Ir para a seção de ${section.title}`}>{section.title}</a>
   )
 
   return (
@@ -85,7 +101,7 @@ export const Header = ({ logoImg, sections }: IHeaderProp) => {
       <header ref={headerRef} className="w-full laptop:w-screen mx-auto h-12 flex items-center justify-between p-4 z-50 fixed-header">
         <>
           <Image data={logoImg} />
-          <span ref={sectionsRef} className="flex items-center justify-between w-44 text-purple">
+          <span ref={sectionsRef} className="flex items-center justify-between w-44 text-foreground">
             {sectionItems}
           </span>
         </>
