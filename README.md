@@ -55,7 +55,7 @@ As seguintes tecnologias foram usadas nesse projeto:
 
 ## :memo: Licença ##
 
-Este projeto está sob licença do MIT. Para obter mais detalhes, consulte o arquivo [LICENSE](LICENSE.md).
+Este projeto está sob licença do MIT. Para obter mais detalhes, consulte o arquivo [LICENSE](LICENSE).
 
 
 Feito com :heart: por <a href="https://github.com/edsonlucasbd" target="_blank">Edson Lucas</a>
