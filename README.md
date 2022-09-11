@@ -40,7 +40,7 @@
 Meu site pessoal. 
 Uso para praticar tecnologias que estou estudando e também expor os projetos que desenvolvo.
 
-## :rocket: Technologies ##
+## :rocket: Tecnologias ##
 
 As seguintes tecnologias foram usadas nesse projeto:
 
@@ -62,4 +62,4 @@ Feito com :heart: por <a href="https://github.com/edsonlucasbd" target="_blank">
 
 &#xa0;
 
-<a href="#top">Back to top</a>
+<a href="#top">Voltar ao início</a>
