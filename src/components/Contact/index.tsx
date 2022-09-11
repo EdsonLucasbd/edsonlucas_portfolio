@@ -55,7 +55,7 @@ export const Contact = ({ logo }: IContact) => {
             }, 1500)
           }}>
           {({ isSubmitting, isValid, handleSubmit }) => (
-            <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative left-0 laptop:left-[20rem] bottom-8 mobile:bottom-0 mobile:top-0 h-[34rem] mobile:h-[39.625rem] w-[20.5rem] mobile:w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
+            <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative left-0 laptop:left-[20rem] bottom-8 sm:bottom-0 sm:top-0 h-[34rem] sm:h-[39.625rem] w-[20.5rem] sm:w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
               <legend className='font-title text-4xl laptop:text-[3.5rem] top-4 laptop:top-3 absolute'>Entre em contato</legend>
 
               <div className="form-group">
@@ -64,25 +64,25 @@ export const Contact = ({ logo }: IContact) => {
                   // aria-labelledby="nameLabel" 
                   />
                   <label className='font-body' id='nameLabel'>Seu nome:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorName" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
                   <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' '
-                  // aria-labelledby="mailLabel" 
+                    aria-labelledby="mailLabel"
                   />
                   <label className='font-body' id='mailLabel'>Seu email <em className='text-sm not-italic text-foreground-900'>(Opcional)</em>:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorEmail" />
                   </span>
                 </div>
                 <div className="label-float flex flex-col">
                   <Field type="phone" name="phone" id="phone" placeholder=' '
-                  // aria-labelledby="phoneLabel" 
+                    aria-labelledby="phoneLabel"
                   />
                   <label className='font-body' id='phoneLabel'>Seu telefone:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="phone" />
                   </span>
                 </div>
@@ -96,10 +96,10 @@ export const Contact = ({ logo }: IContact) => {
                     rows={4}
                     cols={30}
                     wrap="hard"
-                  // aria-labelledby="messageLabel"
+                    aria-labelledby="messageLabel"
                   />
                   <label className='font-body' id='messageLabel'>Sua mensagem:</label>
-                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 mobile:-bottom-1' aria-live='polite'>
+                  <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="message" />
                   </span>
                 </div>
@@ -107,7 +107,7 @@ export const Contact = ({ logo }: IContact) => {
               <button
                 type='submit'
                 className='absolute w-48 tablet:w-56 h-[3.8125rem] rounded-md top-[29.5rem] laptop:top-[34rem] 
-                  tablet:top-[34.5rem] mobile:top-[33rem] flex justify-center items-center
+                  tablet:top-[34.5rem] sm:top-[33rem] flex justify-center items-center
                   bg-comment text-xl tablet:text-2xl font-body shadow-md 
                   disabled:bg-background disabled:opacity-50 
                   disabled:cursor-not-allowed transition-all duration-300
