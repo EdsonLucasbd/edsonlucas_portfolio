@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Fade from 'react-reveal/Fade';
 
 import { Image, ResponsiveImageType } from 'react-datocms';
+import i18n from '@lib/i18n';
+import { useRouter } from 'next/router';
 
 export interface IProjects {
   projects: [{
@@ -19,6 +21,14 @@ export interface IProjects {
 }
 
 export const ProjectCarousel = ({ projects }: IProjects) => {
+  const { locale } = useRouter()
+
+  let LocaleType: {
+    en: string,
+    'pt-BR': string
+  }
+
+  const currentLocale = locale as keyof typeof LocaleType
 
   const projectsList = projects.map((project) =>
     <>
@@ -26,7 +36,7 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
         <Image data={project.projectIcon.responsiveImage} aria-hidden="true" />
         <h4 className="title text-xl text-center sm:text-2xl" aria-live='polite'>{project.projectName}</h4>
         <p className="subtitle font-body text-sm sm:text-base">{project.projectDescription}</p>
-        <a role={'button'} className="linkButton absolute rounded hidden justify-center items-center top-[23rem] sm:top-96 w-[8.07rem] h-[1.94rem] bg-current-line text-base hover:w-36 hover:h-9 hover:text-lg transition-all ease-in-out" href={project.projectLink} target='_blank' rel='noreferrer noopener' aria-label={`Acessar o projeto ${project.projectName} em uma nova aba`} >Ver projeto</a>
+        <a role={'button'} className="linkButton absolute rounded hidden justify-center items-center top-[23rem] sm:top-96 w-[8.07rem] h-[1.94rem] bg-current-line text-base hover:w-36 hover:h-9 hover:text-lg transition-all ease-in-out" href={project.projectLink} target='_blank' rel='noreferrer noopener' aria-label={`Acessar o projeto ${project.projectName} em uma nova aba`} >{i18n.projects.btn[currentLocale]}</a>
       </SwiperSlide>,
     </>
 
@@ -36,7 +46,7 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
     <div id='project' className="flex flex-col justify-center items-center min-h-screen bg-gradientRadial from-comment via-current-line to-background">
       <Fade top cascade>
         <>
-          <h3 className="text-4xl sm:text-[2.3rem] mb-[5.69rem] font-title max-w-[22.5rem] h-[7.63rem] text-center drop-shadow-lg">Conheça Alguns dos Meus Projetos</h3>
+          <h3 className="text-4xl sm:text-[2.3rem] mb-[5.69rem] font-title max-w-[22.5rem] h-[7.63rem] text-center drop-shadow-lg">{i18n.projects.title[currentLocale]}</h3>
         </>
       </Fade>
       <Fade bottom>

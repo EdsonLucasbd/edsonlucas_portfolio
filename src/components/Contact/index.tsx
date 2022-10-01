@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Fade from 'react-reveal/Fade';
 import * as yup from 'yup';
 import emailjs from '@emailjs/browser';
 import { Loader } from '@components/Loader';
-import { FaAngleUp } from 'react-icons/fa'
+import { useRouter } from 'next/router';
+import i18n from '@lib/i18n';
 
 
 interface IContact {
@@ -14,12 +15,28 @@ interface IContact {
 
 export const Contact = ({ logo }: IContact) => {
   const [isLoading, setIsLoading] = useState(false)
+  const { locale } = useRouter()
+
+  let LocaleType: {
+    en: string,
+    'pt-BR': string
+  }
+
+  const currentLocale = locale as keyof typeof LocaleType
+
+  const phoneRegexExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
 
   const formSchema = yup.object().shape({
-    visitorName: yup.string().min(3, 'Seu nome é maior que isso...').required('Informe seu nome.'),
-    visitorEmail: yup.string().email('Informe um email válido.'),
-    phone: yup.string().required('Seu telefone é importante.'),
-    message: yup.string().min(10, 'A mensagem deve ter pelo menos 10 caracteres.').required('Qual a sua mensagem?')
+    visitorName: yup.string()
+      .min(3, `${i18n.form.nameIsShortError[currentLocale]}`)
+      .required(`${i18n.form.nameLabelError[currentLocale]}`),
+    visitorEmail: yup.string().email(`${i18n.form.emailLabelError[currentLocale]}`),
+    phone: yup.string()
+      .matches(phoneRegexExp, `${i18n.form.phoneIsShortError[currentLocale]}`)
+      .required(`${i18n.form.phoneLabelError[currentLocale]}`),
+    message: yup.string()
+      .min(10, `${i18n.form.messageIsShortError[currentLocale]}`)
+      .required(`${i18n.form.messageLabelError[currentLocale]}`)
   })
 
   const sendEmail = (object: Record<string, unknown>) => {
@@ -56,14 +73,14 @@ export const Contact = ({ logo }: IContact) => {
           }}>
           {({ isSubmitting, isValid, handleSubmit }) => (
             <Form onSubmit={handleSubmit} className='flex justify-center items-center flex-col relative left-0 laptop:left-[20rem] bottom-8 sm:bottom-0 sm:top-0 h-[34rem] sm:h-[39.625rem] w-[20.5rem] sm:w-[30.5rem] rounded-[.25rem] bg-current-line shadow-lg'>
-              <legend className='font-title text-4xl laptop:text-[3.5rem] top-4 laptop:top-3 absolute'>Entre em contato</legend>
+              <legend className='font-title text-4xl laptop:text-[3.5rem] top-4 laptop:top-3 absolute'>{i18n.form.title[currentLocale!]}</legend>
 
               <div className="form-group">
                 <div className="label-float flex flex-col">
                   <Field type="text" name="visitorName" id="visitorName" placeholder=' '
                   // aria-labelledby="nameLabel" 
                   />
-                  <label className='font-body' id='nameLabel'>Seu nome:</label>
+                  <label className='font-body' id='nameLabel'>{i18n.form.nameLabel[currentLocale]}</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorName" />
                   </span>
@@ -72,7 +89,7 @@ export const Contact = ({ logo }: IContact) => {
                   <Field type="email" name="visitorEmail" id="visitorEmail" placeholder=' '
                     aria-labelledby="mailLabel"
                   />
-                  <label className='font-body' id='mailLabel'>Seu email <em className='text-sm not-italic text-foreground-900'>(Opcional)</em>:</label>
+                  <label className='font-body' id='mailLabel'>{i18n.form.emailLabel[currentLocale]} <em className='text-sm not-italic text-foreground-900'>{i18n.form.emailLabel.optional[currentLocale]}</em></label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="visitorEmail" />
                   </span>
@@ -81,7 +98,7 @@ export const Contact = ({ logo }: IContact) => {
                   <Field type="phone" name="phone" id="phone" placeholder=' '
                     aria-labelledby="phoneLabel"
                   />
-                  <label className='font-body' id='phoneLabel'>Seu telefone:</label>
+                  <label className='font-body' id='phoneLabel'>{i18n.form.phoneLabel[currentLocale]}</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="phone" />
                   </span>
@@ -98,7 +115,7 @@ export const Contact = ({ logo }: IContact) => {
                     wrap="hard"
                     aria-labelledby="messageLabel"
                   />
-                  <label className='font-body' id='messageLabel'>Sua mensagem:</label>
+                  <label className='font-body' id='messageLabel'>{i18n.form.messageLabel[currentLocale]}</label>
                   <span className='text-pink absolute bottom-3 tablet:-bottom-3 sm:-bottom-1' aria-live='polite'>
                     <ErrorMessage name="message" />
                   </span>
@@ -114,7 +131,7 @@ export const Contact = ({ logo }: IContact) => {
                   hover:brightness-110'
                 disabled={!isValid && !isSubmitting}
               >
-                {isLoading ? <Loader size={24} /> : `Enviar mensagem`}
+                {isLoading ? <Loader size={24} /> : `${i18n.form.sendMessageButton[currentLocale]}`}
               </button>
             </Form>
           )}
