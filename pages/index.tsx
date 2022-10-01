@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import { Header } from '@components/Header'
 import { Home } from '@components/Home'
-import { loadData, loadHeaderData } from '@lib/datocms';
+import { loadData } from '@lib/datocms';
 import { QueryResponseType } from '@lib/types';
 import { ResponsiveImageType } from 'react-datocms';
 import { SocialLinks } from '@components/SocialLinks';
 import { ProjectCarousel } from '@components/ProjectCarousel';
 import { Contact } from '@components/Contact';
 import { BackToTopButton } from '@components/ScrollTopButton';
+import { NextRouter, useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
 
 type Props = {
   data: QueryResponseType,
@@ -44,8 +47,9 @@ type Props = {
   }
 }
 
-export async function getStaticProps() {
-  const data = await loadData();
+export async function getStaticProps({ locale }: NextRouter) {
+
+  const data = await loadData(locale);
 
   return {
     props: {
@@ -76,6 +80,7 @@ const App = ({
   networks,
   projects,
   tab }: Props) => {
+
   return (
     <>
       {data && (

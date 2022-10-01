@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['www.datocms-assets.com'],
   },
   i18n: {
-    locales: ['pt-BR', 'en-US', 'es-ES'],
+    locales: ['pt-BR', 'en'],
     defaultLocale: 'pt-BR',
   },
 }
