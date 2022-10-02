@@ -1,4 +1,12 @@
 export default {
+  'scroll-top': {
+    en: 'Return To the beginning of the portfolio.',
+    'pt-BR': 'Voltar para o início do portfólio.'
+  },
+  'social-network': {
+    en: 'Access my profile on',
+    'pt-BR': 'Acesse meu perfil no'
+  },
   projects: {
     title: {
       en: 'Discover Some of My Projects',
@@ -7,6 +15,14 @@ export default {
     btn: {
       en: 'Access the project',
       'pt-BR': 'Acessar o projeto'
+    },
+    'aria-label-start': {
+      en: 'Access the project',
+      'pt-BR': 'Acessar o projeto'
+    },
+    'aria-label-final': {
+      en: 'in a new tab',
+      'pt-BR': 'em uma nova aba'
     }
   },
   form: {
@@ -50,10 +66,10 @@ export default {
       en: 'Please provide a valid phone number.',
       'pt-BR': 'Informe um telefone válido.'
     },
-    // phoneIsLongError: {
-    //   en: 'Mobile number is usually less than 12 digits.',
-    //   'pt-BR': 'Geralmente o número de celular tem menos de 12 dígitos.'
-    // },
+    phoneIsLongError: {
+      en: 'Mobile number is usually less than 12 digits.',
+      'pt-BR': 'Geralmente o número de celular tem menos de 12 dígitos.'
+    },
     // phoneIsNotNumberError: {
     //   en: 'Only numbers in this field.',
     //   'pt-BR': 'Somente números neste campo.'

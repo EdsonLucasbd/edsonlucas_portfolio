@@ -1,3 +1,5 @@
+import i18n from '@lib/i18n';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { FiLinkedin, FiInstagram, FiGithub } from 'react-icons/fi';
 import Fade from 'react-reveal/Fade';
@@ -11,6 +13,15 @@ interface ISocialLinks {
 }
 
 export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
+  const { locale } = useRouter()
+
+  let LocaleType: {
+    en: string,
+    'pt-BR': string
+  }
+
+  const currentLocale = locale as keyof typeof LocaleType
+
   const icon = (iconName: string) => {
     switch (iconName) {
       case 'linkedin':
@@ -40,7 +51,7 @@ export const SocialLinks = ({ socialNetwork }: ISocialLinks) => {
       href={network.link}
       target="_blank"
       rel="noreferrer"
-      aria-label={`Acesse meu perfil no ${network.networkName}`}
+      aria-label={`${i18n['social-network'][currentLocale]} ${network.networkName}`}
       role="button"
     >
       {icon(network.networkName)}

@@ -1,8 +1,18 @@
+import i18n from '@lib/i18n'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { FaAngleUp } from 'react-icons/fa'
 
 export const BackToTopButton = () => {
   const [showTopBtn, setShowTopBtn] = useState(false)
+  const { locale } = useRouter()
+
+  let LocaleType: {
+    en: string,
+    'pt-BR': string
+  }
+
+  const currentLocale = locale as keyof typeof LocaleType
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -30,7 +40,7 @@ export const BackToTopButton = () => {
             rounded-[50%] h-8 w-8 sm:h-12 sm:w-12 text-foreground 
             cursor-pointer transition-all ease-in-out'
           onClick={goToTop}
-          aria-label='Voltar para o início do portfólio.'
+          aria-label={`${i18n['scroll-top'][currentLocale]}`}
           role="button"
         />
       )}

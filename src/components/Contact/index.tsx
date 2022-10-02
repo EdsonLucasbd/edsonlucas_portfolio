@@ -24,15 +24,14 @@ export const Contact = ({ logo }: IContact) => {
 
   const currentLocale = locale as keyof typeof LocaleType
 
-  const phoneRegexExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
-
   const formSchema = yup.object().shape({
     visitorName: yup.string()
       .min(3, `${i18n.form.nameIsShortError[currentLocale]}`)
       .required(`${i18n.form.nameLabelError[currentLocale]}`),
     visitorEmail: yup.string().email(`${i18n.form.emailLabelError[currentLocale]}`),
     phone: yup.string()
-      .matches(phoneRegexExp, `${i18n.form.phoneIsShortError[currentLocale]}`)
+      .min(11, `${i18n.form.phoneIsShortError[currentLocale]}`)
+      .max(12, `${i18n.form.phoneIsLongError[currentLocale]}`)
       .required(`${i18n.form.phoneLabelError[currentLocale]}`),
     message: yup.string()
       .min(10, `${i18n.form.messageIsShortError[currentLocale]}`)

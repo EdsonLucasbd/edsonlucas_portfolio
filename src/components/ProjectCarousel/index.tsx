@@ -36,7 +36,16 @@ export const ProjectCarousel = ({ projects }: IProjects) => {
         <Image data={project.projectIcon.responsiveImage} aria-hidden="true" />
         <h4 className="title text-xl text-center sm:text-2xl" aria-live='polite'>{project.projectName}</h4>
         <p className="subtitle font-body text-sm sm:text-base">{project.projectDescription}</p>
-        <a role={'button'} className="linkButton absolute rounded hidden justify-center items-center top-[23rem] sm:top-96 w-[8.07rem] h-[1.94rem] bg-current-line text-base hover:w-36 hover:h-9 hover:text-lg transition-all ease-in-out" href={project.projectLink} target='_blank' rel='noreferrer noopener' aria-label={`Acessar o projeto ${project.projectName} em uma nova aba`} >{i18n.projects.btn[currentLocale]}</a>
+        <a
+          role={'button'}
+          className="linkButton absolute rounded hidden justify-center items-center top-[23rem] sm:top-96 w-[8.5rem] h-[1.94rem] bg-comment text-base hover:w-36 hover:h-9 hover:text-lg transition-all ease-in-out"
+          href={project.projectLink}
+          target='_blank'
+          rel='noreferrer noopener'
+          aria-label={`${i18n.projects['aria-label-start'][currentLocale]} ${project.projectName} ${i18n.projects['aria-label-final'][currentLocale]}`}
+        >
+          {i18n.projects.btn[currentLocale]}
+        </a>
       </SwiperSlide>,
     </>
 
