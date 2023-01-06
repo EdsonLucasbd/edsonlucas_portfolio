@@ -8,8 +8,9 @@ import { SocialLinks } from '@components/SocialLinks';
 import { ProjectCarousel } from '@components/ProjectCarousel';
 import { Contact } from '@components/Contact';
 import { BackToTopButton } from '@components/ScrollTopButton';
-import { NextRouter, useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { NextRouter } from 'next/router';
+import { DefaultSeo } from 'next-seo';
+import SEO from 'next-seo.config'
 
 
 type Props = {
@@ -52,6 +53,7 @@ export async function getStaticProps({ locale }: NextRouter) {
   const data = await loadData(locale);
 
   return {
+    revalidate: 60,
     props: {
       data,
       logoImg: data?.logo.logomarca.responsiveImage,
@@ -87,9 +89,10 @@ const App = ({
         <>
           <Head>
             <title>{tab?.tabTitle}</title>
-            <meta name="description" />
             <link rel="icon" href={tab?.icon.url} />
+            <link rel="manifest" href="/manifest.json" />
           </Head>
+          <DefaultSeo {...SEO} />
           <main className="max-w-md sm:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
             <Header logoImg={logoImg} sections={sections} />
             <SocialLinks socialNetwork={networks} />

@@ -1,0 +1,16 @@
+{
+  "name": "Edson Lucas | Front End",
+  "short_name": "Edson Lucas",
+  "icons": [
+    {
+      "src": "https://www.datocms-assets.com/66381/1660364785-background.svg",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "background_color": "#363949",
+  "description": "Este é o meu portfólio, aqui poderá encontrar alguns dos meus projetos, redes sociais e entrar em contato comigo.",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#363949"
+}
