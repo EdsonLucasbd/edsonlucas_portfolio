@@ -9,9 +9,6 @@ import { ProjectCarousel } from '@components/ProjectCarousel';
 import { Contact } from '@components/Contact';
 import { BackToTopButton } from '@components/ScrollTopButton';
 import { NextRouter } from 'next/router';
-import { DefaultSeo } from 'next-seo';
-import SEO from 'next-seo.config'
-
 
 type Props = {
   data: QueryResponseType,
@@ -90,9 +87,7 @@ const App = ({
           <Head>
             <title>{tab?.tabTitle}</title>
             <link rel="icon" href={tab?.icon.url} />
-            <link rel="manifest" href="/manifest.json" />
           </Head>
-          <DefaultSeo {...SEO} />
           <main className="max-w-md sm:max-w-full h-screen bg-gradientRadial from-comment via-current-line to-background">
             <Header logoImg={logoImg} sections={sections} />
             <SocialLinks socialNetwork={networks} />
